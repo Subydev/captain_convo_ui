@@ -76,7 +76,8 @@ export const Navbar = () => {
               <LinkOverlay >
                 <Box spacing="6">
                 {isAuthenticated ? (
-                      <Link to="/dashboard">
+                      // <Link to="/dashboard">
+                      <Link to="/">
                         <NavbarLogo />
                       </Link>)
                       :
