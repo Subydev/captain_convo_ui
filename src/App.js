@@ -3,38 +3,41 @@ import {
   ChakraProvider,
   Box,
   Text,
-  Link,
   VStack,
   Code,
   Grid,
   theme,
 } from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import {Navbar} from './components/navbar/Navbar'
+import { Route, Routes } from "react-router-dom"
+import { Link } from 'react-router-dom';
+import { Documents} from './pages/docs'
+import { Stats} from './pages/stats'
+import Contact from './pages/contact'
+import { Landing} from './pages/landing'
+import { CallbackPage} from './auth/callBackPage'
+import { NotFoundPage } from './auth/notFound'
+import { Dashboard } from './pages/dashboard'
+import { Home } from './pages/Home'
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
+
+      <Navbar />
         <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
+          <Routes >
+            <Route path="/" element={<Home />} />
+            <Route path="/dashboard" element={<Dashboard />}/>
+            <Route path="/callback" element={<CallbackPage />}/>
+            <Route path="/docs" element={<Documents />}/>
+            <Route path="/stats" element={<Stats />}/>
+            <Route path="/contact" element={<Contact />}/>
+            <Route path="*" element={<NotFoundPage />}/>
+
+          </Routes>
+
         </Grid>
-      </Box>
     </ChakraProvider>
   );
 }

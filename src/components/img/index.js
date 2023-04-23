@@ -2,29 +2,17 @@ import { ColorModeScript } from '@chakra-ui/react';
 import React, { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import App from './App';
+import theme from './theme'
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter } from "react-router-dom"
-import { Auth0Provider } from "@auth0/auth0-react";
-import { Auth0ProviderWithNavigate } from "./auth/authProviderNav";
-import theme from './theme'
-
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
 root.render(
   <StrictMode>
-    <ColorModeScript />
-    <BrowserRouter>
-      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-        <Auth0ProviderWithNavigate>
-        {/* <Auth0Provider > */}
-        <App />
-
-        {/* </Auth0Provider> */}
-      </Auth0ProviderWithNavigate>
-    </BrowserRouter>
+    <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+    <App />
   </StrictMode>
 );
 
