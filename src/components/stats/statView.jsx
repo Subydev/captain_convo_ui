@@ -14,7 +14,7 @@ export const StatView = (props) => {
       >
         {value}
       </Heading>
-      <Text fontSize="lg" fontWeight="medium" color={mode('gray.50', 'gray.200')}>
+      <Text fontSize="lg" fontWeight="medium" color={mode('gray.800', 'gray.200')}>
         {label}
       </Text>
     </Stack>

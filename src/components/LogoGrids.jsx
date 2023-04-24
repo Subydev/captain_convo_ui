@@ -32,6 +32,7 @@ export const LogoGrid = () => (
             }}
             boxShadow="md"
             borderRadius="lg"
+            bg={mode('bg.400', 'gray.800')}
           >
             <Logo
               h={{

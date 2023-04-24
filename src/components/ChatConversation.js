@@ -19,7 +19,7 @@ import AnimText from './AnimText';
 const MotionBox = motion(Box);
 const ChannelMenuItem = ({ channelName }) => (
   <HStack
-  w="100%" // add this line
+  w="100%"
     px={3}
     py={1}
     borderRadius="5px"

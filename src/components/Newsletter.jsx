@@ -38,10 +38,10 @@ export const Newsletter = () => (
         >
           <Stack spacing={{ base: '4', md: '5' }}>
             <Heading 
-            color={mode('white', 'gray.100')}
+            color={mode('black', 'gray.100')}
             size={{ base: 'md', md: 'xl' }}>Sign up for our newsletter</Heading>
             <Text 
-            color={mode('white', 'gray.100')}
+            color={mode('black', 'gray.100')}
             fontSize={{ base: 'lg', md: 'xl' }} 
             >
                             Be the first to know when we connect with new services
@@ -57,8 +57,9 @@ export const Newsletter = () => (
                             <Input
                                 focusBorderColor='tomato'
                                 type="email"
-                                _placeholder={{ opacity: 1, color: 'gray.200' }}
+                                _placeholder={{ opacity: 1, color: 'gray.400' }}
                                 size="lg"
+                                color = {mode('black', 'gray.100')}
                                 placeholder="Enter your email" />
                         </FormControl>
                         <Button variant="primary" bg="tomato" size="lg"

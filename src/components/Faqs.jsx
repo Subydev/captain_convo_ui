@@ -16,7 +16,6 @@ useColorModeValue as mode,
 
 export const Faq = () => (
   <Container
-    width="80%"
     maxW="container.xl"
     py={{
       base: '4',

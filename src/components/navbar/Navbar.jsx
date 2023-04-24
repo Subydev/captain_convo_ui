@@ -38,7 +38,6 @@ import {
     LinkOverlay,
     LinkProps,
     DrawerFooter,
-
   } from "@chakra-ui/react";
   import { useRef } from "react";
   import { data } from "./data";
@@ -53,24 +52,45 @@ import LogoutButton from '../../auth/LogoutButton'
 import {SignupButton} from '../../auth/SignupButton'
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useEffect } from 'react';
+import { useScrollPosition } from 'react-use-scroll-position';
 
+export const Navbar = (props) => {
+  const { colorMode } = useColorMode();
 
-export const Navbar = () => {
   const { isAuthenticated } = useAuth0();
     const isDesktop = useBreakpointValue({
       base: false,
       lg: true,
     })
+
+    const [scrolling, setScrolling] = useState(false);
+    const scrollPosition = useScrollPosition();
+  
+    useEffect(() => {
+      setScrolling(scrollPosition.y > 10);
+    }, [scrollPosition]);
+
     return (
-      <Box
-        as="section"
-        pb={{
-          base: '12',
-          md: '24',
-        }}
-      >
-        <Box as="nav" bg="bg-surface" boxShadow="md">
-            <Container py={{ base: '3', lg: '4' }} width="80%" maxW="container.xl">
+
+<Box
+  as="nav"
+  bg={
+    scrolling
+      ? colorMode === "light"
+        ? "gray.200"
+        : "gray.700"
+      : colorMode === "light"
+      ? "white"
+      : "gray.800"
+  }
+  boxShadow="md"
+  position="sticky"
+  top="0"
+  zIndex="sticky"
+>
+
+          <Container py={{ base: '3', lg: '4' }} width="auto" maxW="container.xl">
             <Flex justify="space-between">
             <LinkBox>
               <LinkOverlay >
@@ -108,16 +128,23 @@ export const Navbar = () => {
                   <ButtonGroup variant="ghost" spacing="4">
                   {!isAuthenticated && (
                         <>
+            <ColorModeSwitcher fontSize = "1.25rem" />
+
                             <SignupButton/>
                             <LoginButton/>
+
                         </>
                         )}
                               {isAuthenticated && (
                         <>
+                        
                             {null}
                         </>
                         )}
+            <ColorModeSwitcher fontSize = "1.25rem" />
+
                     <LeftDrawer />
+
                   </ButtonGroup>
                 </HStack>
                 
@@ -125,11 +152,11 @@ export const Navbar = () => {
                 <LeftDrawer
                 
                 />
+                
               )}
             </Flex>
           </Container>
         </Box>
-      </Box>
     )
   }
 

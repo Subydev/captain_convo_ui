@@ -12,16 +12,17 @@ import { Link } from 'react-router-dom';
 import { FaExternalLinkAlt, FaChevronCircleRight } from 'react-icons/fa';
 
 export const CallToAction = () => (
-  <Box
+  <Container
     as="section"
-    
-    >
+    maxW="container.xl"
+    centerContent
+    py="10"
+  >
     <Box
       mx="auto"
       boxShadow={"md"}
       borderRadius="3xl"
-      
-
+      bg={mode('white', 'gray.800')}
       px={{
         base: '6',
         lg: '16',
@@ -57,31 +58,28 @@ export const CallToAction = () => (
           </Text>
         </Stack>
         <Hide below='md'>
-
-        <Stack
-     
-        >
-          <Link to="/docs">
-          <Button
-            mt="12"
-            p="4"
-            bg="tomato"
-            height="14"
-            fontSize="md"
-            fontWeight="medium"
-            _hover={{ bg: "#a44431" }}
-            rightIcon={<FaExternalLinkAlt />}
-            size={{
-              base: 'md',
-              md: 'lg',
-            }}
-          >
-            View Documentation
-          </Button>
-          </Link>
-        </Stack>
+          <Stack>
+            <Link to="/docs">
+              <Button
+                mt="12"
+                p="4"
+                bg="tomato"
+                height="14"
+                fontSize="md"
+                fontWeight="medium"
+                _hover={{ bg: "#a44431" }}
+                rightIcon={<FaExternalLinkAlt />}
+                size={{
+                  base: 'md',
+                  md: 'lg',
+                }}
+              >
+                View Documentation
+              </Button>
+            </Link>
+          </Stack>
         </Hide>
       </Stack>
     </Box>
-  </Box>
+  </Container>
 );

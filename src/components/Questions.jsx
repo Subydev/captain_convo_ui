@@ -51,7 +51,7 @@ export const Question = () => (
             name="Sarah Johnson"
           />
           <Stack spacing="1">
-            <Text fontWeight="semibold" textStyle="lg" color={mode('gray.100', 'gray.100')} >
+            <Text fontWeight="semibold" textStyle="lg" color={mode('gray.800', 'gray.100')} >
               Subydev
             </Text>
         

@@ -5,24 +5,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from "react-router-dom"
-import { Auth0Provider } from "@auth0/auth0-react";
 import { Auth0ProviderWithNavigate } from "./auth/authProviderNav";
 import theme from './theme'
-
+import { ChakraProvider } from '@chakra-ui/react';
 
 const container = document.getElementById('root');
 const root = ReactDOM.createRoot(container);
 
 root.render(
   <StrictMode>
-    <ColorModeScript />
     <BrowserRouter>
       <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-        <Auth0ProviderWithNavigate>
-        {/* <Auth0Provider > */}
-        <App />
-
-        {/* </Auth0Provider> */}
+      <Auth0ProviderWithNavigate>
+        <ChakraProvider theme={theme}>
+          <App />
+        </ChakraProvider>
       </Auth0ProviderWithNavigate>
     </BrowserRouter>
   </StrictMode>

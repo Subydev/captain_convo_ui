@@ -51,7 +51,6 @@ export const HomeStat = () => {
     return (
       <Box >
         <Container
-          width="80%"
           maxW="container.xl"
           py={{
             base: '2',

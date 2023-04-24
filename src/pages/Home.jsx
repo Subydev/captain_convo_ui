@@ -9,10 +9,11 @@ import { LogoGrid } from '../components/LogoGrids'
 // import { Main } from './Main';
 import { Footer } from '../components/Footer';
 import { Landing } from './landing';
-
+import { Container } from '@chakra-ui/react';
 export const Home = () => {
     return (
         <>
+
         {/* <Navbar /> */}
         <Landing />
         <HomeStat />
@@ -24,6 +25,7 @@ export const Home = () => {
         <Question />
         <Newsletter />
         <Footer />
+
         </>
   
     )
