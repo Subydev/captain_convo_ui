@@ -13,20 +13,26 @@ import { CallbackPage} from './auth/callBackPage'
 import { NotFoundPage } from './auth/notFound'
 import { Dashboard } from './pages/dashboard'
 import { Home } from './pages/Home'
-
-function App() {
+import
+ { Analytics } 
+from
+ 
+'@vercel/analytics/react'
+;
+function App(Component, pageProps) {
   return (
     <>
+      <Analytics />
       <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/callback" element={<CallbackPage />} />
-          <Route path="/docs" element={<Documents />} />
-          <Route path="/stats" element={<Stats />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/callback" element={<CallbackPage />} />
+        <Route path="/docs" element={<Documents />} />
+        <Route path="/stats" element={<Stats />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </>
   );
 }
